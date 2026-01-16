@@ -6,7 +6,7 @@
 #    By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/13 18:29:17 by rgomes-g          #+#    #+#              #
-#    Updated: 2026/01/13 18:31:27 by rgomes-g         ###   ########.fr        #
+#    Updated: 2026/01/16 15:11:15 by rgomes-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS	= srcs/main.c \
 		  srcs/init.c \
 		  srcs/simulation.c \
 		  srcs/utils.c \
-		  srcs/str_utils.c \
+		  srcs/str_utils.c 
 
 OBJS	= $(SRCS:.c=.o)
 

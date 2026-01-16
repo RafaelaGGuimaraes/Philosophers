@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:32:14 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/13 18:32:15 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:14:38 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,14 @@ void	init_engine(t_engine *engine, t_philo *philos, t_mutex *forks);
 /* ===================== SIMULATION ===================== */
 
 bool	is_all_eat(t_philo *philos);
-void	*obsorver(void *ptr);
+void	*observer(void *ptr);
 void	philo_routine(t_philo *philo);
 void	*start_simulation(void *ptr);
 void	launcher(t_engine *engine, int count);
 
 /* ===================== UTILS ===================== */
 
-void	error_message(char *text, int signal);
+void	print_error(char *text, int signal);
 void	destroy_all(t_engine *engine, char *str, int count, int signal);
 void	print_action(t_philo *philo, char *action);
 size_t	get_current_time(void);

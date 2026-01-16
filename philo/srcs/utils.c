@@ -6,13 +6,13 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:31:56 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/13 18:31:57 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:01:38 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	error_message(char *text, int signal)
+void	print_error(char *text, int signal)
 {
 	if (text)
 		write(2, text, ft_strlen(text) + 1);
@@ -25,7 +25,7 @@ void	destroy_all(t_engine *engine, char *str, int count, int signal)
 		pthread_mutex_destroy(&engine->forks[count]);
 	pthread_mutex_destroy(&engine->write_lock);
 	pthread_mutex_destroy(&engine->meal_lock);
-	error_message(str, signal);
+	print_error(str, signal);
 }
 
 void	print_action(t_philo *philo, char *action)
@@ -43,7 +43,7 @@ size_t	get_current_time(void)
 	t_timeval	time;
 
 	if (gettimeofday(&time, NULL) == -1)
-		error_message("[gettimeofday ERROR]\n", 1);
+		print_error("[gettimeofday ERROR]\n", 1);
 	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 

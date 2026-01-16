@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:32:02 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/14 16:11:15 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/16 14:59:13 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ bool	is_all_eat(t_philo *philos)
 	return (false);
 }
 
-void	*obsorver(void *ptr)
+void	*observer(void *ptr)
 {
 	t_philo	*philos;
 	int		i;
@@ -67,20 +67,20 @@ void	*obsorver(void *ptr)
 void	philo_routine(t_philo *philo)
 {
 	pthread_mutex_lock(philo->mutexes.left_fork);
-	print_action(philo, " has taken a fork");
+	print_action(philo, " has taken a fork 🍴");
 	pthread_mutex_lock(philo->mutexes.right_fork);
-	print_action(philo, " has taken a fork");
+	print_action(philo, " has taken a fork 🍴");
 	pthread_mutex_lock(philo->mutexes.meal_lock);
-	print_action(philo, " is eating");
+	print_action(philo, " is eating 🍝");
 	philo->times.last_meal = get_current_time();
 	philo->meals_eaten += 1;
 	pthread_mutex_unlock(philo->mutexes.meal_lock);
 	ft_usleep(philo->times.eat);
 	pthread_mutex_unlock(philo->mutexes.left_fork);
 	pthread_mutex_unlock(philo->mutexes.right_fork);
-	print_action(philo, " is sleeping");
+	print_action(philo, " is sleeping 💤");
 	ft_usleep(philo->times.sleep);
-	print_action(philo, " is thinking");
+	print_action(philo, " is thinking 💭");
 }
 
 void	*start_simulation(void *ptr)
@@ -101,11 +101,11 @@ void	*start_simulation(void *ptr)
 
 void	launcher(t_engine *engine, int count)
 {
-	t_id	obsorver_id;
+	t_id	observer_id;
 	int		i;
 
 	i = -1;
-	if (pthread_create(&obsorver_id, NULL, &obsorver, engine->philos) != 0)
+	if (pthread_create(&observer_id, NULL, &observer, engine->philos) != 0)
 		destroy_all(engine, "[Thread Creation ERROR]\n", count, 1);
 	while (++i < count)
 	{
@@ -114,7 +114,7 @@ void	launcher(t_engine *engine, int count)
 			destroy_all(engine, "[Thread Creation ERROR]\n", count, 1);
 	}
 	i = -1;
-	if (pthread_join(obsorver_id, NULL) != 0)
+	if (pthread_join(observer_id, NULL) != 0)
 		destroy_all(engine, "[Thread Join ERROR]\n", count, 1);
 	while (++i < count)
 	{

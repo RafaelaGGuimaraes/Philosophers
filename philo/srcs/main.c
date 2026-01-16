@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 18:32:06 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/13 18:32:07 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/16 15:01:49 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ void	check_args(int argc, char **argv)
 
 	i = 0;
 	if (argc < 5 || argc > 6)
-		error_message("[Argument Count ERROR]\n", 1);
+		print_error("[Argument Count ERROR]\n", 1);
 	while (++i < argc)
 	{
 		num = ft_atoi(argv[i]);
 		if (i == 1 && (num < 1 || num > PHILO_MAX_COUNT))
-			error_message("[Argument ERROR]\n", 1);
+			print_error("[Argument ERROR]\n", 1);
 		else if (i == 5 && (num < 0 || num > INT_MAX))
-			error_message("[Argument ERROR]\n", 1);
+			print_error("[Argument ERROR]\n", 1);
 		else if (i != 1 && i != 5 && (num < 1 || num > INT_MAX))
-			error_message("[Argument ERROR]\n", 1);
+			print_error("[Argument ERROR]\n", 1);
 	}
 }
 
