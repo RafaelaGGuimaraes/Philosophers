@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:24:01 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/27 14:54:07 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/28 08:55:11 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int	main(int argc, char **argv)
 		pthread_join(philos[i].thread_id, NULL);
 		i++;
 	}
-	cleanup(&data, philos);
+	destroy_all(&data, philos);
 	return (0);
 }

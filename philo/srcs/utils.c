@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:30:44 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/27 14:14:43 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/28 08:54:55 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	print_action(t_philo *philo, char *str)
 	}
 }
 
-void	cleanup(t_data *data, t_philo *philos)
+void	destroy_all(t_data *data, t_philo *philos)
 {
 	int	i;
 

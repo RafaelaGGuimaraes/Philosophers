@@ -6,33 +6,33 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:23:57 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/27 14:13:22 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/28 08:53:05 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-int	ft_atou(const char *nptr)
+int	ft_atou(const char *str)
 {
 	long	n;
 
 	n = 0;
-	if (!*nptr)
+	if (!*str)
 		return (0);
-	if (*nptr == '+')
-		nptr++;
-	while (*nptr >= '0' && *nptr <= '9')
+	if (*str == '+')
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
 		if (n > INT_MAX / 10 || (n == INT_MAX
-				/ 10 && (*nptr - '0') > INT_MAX % 10))
+				/ 10 && (*str - '0') > INT_MAX % 10))
 			return (0);
-		n = (n * 10) + (*nptr - '0');
-		nptr++;
+		n = (n * 10) + (*str - '0');
+		str++;
 	}
 	return (n);
 }
 
-int	valid_argument(int argc, char **argv)
+int	is_valid(int argc, char **argv)
 {
 	int	i;
 	int	j;
@@ -62,7 +62,7 @@ int	error_arg(int argc, char **argv)
 		printf("Error: Invalid number of arguments.\n");
 		return (1);
 	}
-	if (valid_argument(argc, argv))
+	if (is_valid(argc, argv))
 	{
 		printf("Error: Invalid arguments\n");
 		return (1);
