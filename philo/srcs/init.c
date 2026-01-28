@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:26:03 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/27 14:53:17 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/28 10:01:48 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,24 +35,24 @@ int	init_global_data(t_data *data)
 	return (0);
 }
 
-int	init_philos(t_philo **philos, t_data *data)
+int	init_philos(t_philo **philo, t_data *data)
 {
 	int	i;
 
-	*philos = malloc(sizeof(t_philo) * data->num_philos);
-	if (!*philos)
+	*philo = malloc(sizeof(t_philo) * data->num_philos);
+	if (!*philo)
 		return (1);
 	i = 0;
 	while (i < data->num_philos)
 	{
-		(*philos)[i].id = i + 1;
-		(*philos)[i].data = data;
-		(*philos)[i].meals_eaten = 0;
-		(*philos)[i].last_meal_time = get_time();
-		if (pthread_mutex_init(&(*philos)[i].philo_lock, NULL))
+		(*philo)[i].id = i + 1;
+		(*philo)[i].data = data;
+		(*philo)[i].meals_eaten = 0;
+		(*philo)[i].last_meal_time = get_time();
+		if (pthread_mutex_init(&(*philo)[i].philo_lock, NULL))
 			return (1);
-		(*philos)[i].left_fork = &data->forks[i];
-		(*philos)[i].right_fork = &data->forks[(i + 1) % data->num_philos];
+		(*philo)[i].left_fork = &data->forks[i];
+		(*philo)[i].right_fork = &data->forks[(i + 1) % data->num_philos];
 		i++;
 	}
 	return (0);
