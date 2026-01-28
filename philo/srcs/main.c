@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:24:01 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/28 08:55:11 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/28 10:08:46 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,28 +37,28 @@ int	check_args(int argc, char **argv, t_data *data)
 int	main(int argc, char **argv)
 {
 	t_data		data;
-	t_philo		*philos;
+	t_philo		*philo;
 	int			i;
 
 	if (check_args(argc, argv, &data))
 		return (1);
 	if (init_global_data(&data))
 		return (1);
-	if (init_philos(&philos, &data))
+	if (init_philos(&philo, &data))
 	{
 		printf("Error: Falied to initialize philosophers.\n");
 		free(data.forks);
 		return (1);
 	}
-	if (start_simulation(&data, philos))
+	if (start_simulation(&data, philo))
 		return (1);
-	monitor(&data, philos);
+	monitor(&data, philo);
 	i = 0;
 	while (i < data.num_philos)
 	{
-		pthread_join(philos[i].thread_id, NULL);
+		pthread_join(philo[i].thread_id, NULL);
 		i++;
 	}
-	destroy_all(&data, philos);
+	destroy_all(&data, philo);
 	return (0);
 }
