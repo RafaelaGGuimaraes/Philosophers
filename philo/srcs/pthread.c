@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:31:24 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/27 15:06:48 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/28 09:48:37 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static int	philo_has_died(t_data *data, t_philo *philos)
 {
 	int			i;
 
-	i = 0; 
+	i = 0;
 	while (i < data->num_philos)
 	{
 		pthread_mutex_lock(&philos[i].philo_lock);

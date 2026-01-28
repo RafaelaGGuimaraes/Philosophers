@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:31:55 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/28 08:55:15 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/01/28 09:48:09 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,9 @@ int			main(int argc, char **argv);
 int			init_global_data(t_data *data);
 int			init_philos(t_philo **philos, t_data *data);
 int			start_simulation(t_data *data, t_philo *philos);
-int	        ft_atou(const char *str);
-int	        is_valid(int argc, char **argv);
-int	        error_arg(int argc, char **argv);
+int			ft_atou(const char *str);
+int			is_valid(int argc, char **argv);
+int			error_arg(int argc, char **argv);
 long long	get_time(void);
 void		print_action(t_philo *philo, char *str);
 void		philo_eat(t_philo *philo);
