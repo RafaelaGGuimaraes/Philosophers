@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:26:03 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/28 10:01:48 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/04 14:21:02 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ int	init_philos(t_philo **philo, t_data *data)
 		(*philo)[i].id = i + 1;
 		(*philo)[i].data = data;
 		(*philo)[i].meals_eaten = 0;
-		(*philo)[i].last_meal_time = get_time();
 		if (pthread_mutex_init(&(*philo)[i].philo_lock, NULL))
 			return (1);
 		(*philo)[i].left_fork = &data->forks[i];

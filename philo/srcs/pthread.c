@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:31:24 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/28 09:56:21 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/04 14:22:31 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,14 @@ int	start_simulation(t_data *data, t_philo *philo)
 	int	i;
 
 	data->start_time = get_time();
+	i = 0;
+	while (i < data->num_philos)
+	{
+		pthread_mutex_lock(&philo[i].philo_lock);
+		philo[i].last_meal_time = data->start_time;
+		pthread_mutex_unlock(&philo[i].philo_lock);
+		i++;
+	}
 	i = 0;
 	while (i < data->num_philos)
 	{
