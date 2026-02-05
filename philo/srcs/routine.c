@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:28:24 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/27 14:14:31 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:10:15 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	philo_eat(t_philo *philo)
 	print_action(philo, "has taken a fork 🍴");
 	if (philo->data->num_philos == 1)
 	{
-		usleep(philo->data->time_to_die * 1000);
+		ft_usleep(philo->data->time_to_die);
 		pthread_mutex_unlock(first_fork);
 		return ;
 	}
@@ -48,7 +48,7 @@ void	philo_eat(t_philo *philo)
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->philo_lock);
 	print_action(philo, "is eating 🍝");
-	usleep(philo->data->time_to_eat * 1000);
+	ft_usleep(philo->data->time_to_eat);
 	pthread_mutex_unlock(second_fork);
 	pthread_mutex_unlock(first_fork);
 }
@@ -72,7 +72,7 @@ void	*philo_routine(void *arg)
 		pthread_mutex_unlock(&philo->data->monitor_lock);
 		philo_eat(philo);
 		print_action(philo, "is sleeping 💤");
-		usleep(philo->data->time_to_sleep * 1000);
+		ft_usleep(philo->data->time_to_sleep);
 		print_action(philo, "is thinking 💭");
 		if (philo->data->num_philos % 2 != 0)
 			usleep(1000);

@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:31:24 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/02/04 14:22:31 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:03:00 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,6 @@ void	monitor(t_data *data, t_philo *philo)
 			pthread_mutex_unlock(&data->monitor_lock);
 			return ;
 		}
-		usleep(900);
+		usleep(500);
 	}
 }

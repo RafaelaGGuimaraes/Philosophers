@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:30:44 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/28 10:07:54 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:01:36 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ long long	get_time(void)
 	if (gettimeofday(&tv, NULL) == -1)
 		return (-1);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
+
+void	ft_usleep(size_t mls)
+{
+	size_t	start;
+
+	start = get_time();
+	while ((get_time() - start) < mls)
+		usleep(500);
 }
 
 void	print_action(t_philo *philo, char *str)
