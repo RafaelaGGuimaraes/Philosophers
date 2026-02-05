@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:31:24 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/02/05 09:03:00 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:29:33 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	start_simulation(t_data *data, t_philo *philo)
 {
 	int	i;
 
-	data->start_time = get_time();
+	data->start_time = get_curent_time();
 	i = 0;
 	while (i < data->num_philos)
 	{
@@ -40,7 +40,7 @@ static int	aux_dead(t_data *data, t_philo *philo, int i)
 {
 	long long	time;
 
-	if (get_time() - philo[i].last_meal_time > data->time_to_die)
+	if (get_curent_time() - philo[i].last_meal_time > data->time_to_die)
 	{
 		pthread_mutex_lock(&data->monitor_lock);
 		if (data->stop_simulation == 1)
@@ -51,7 +51,7 @@ static int	aux_dead(t_data *data, t_philo *philo, int i)
 		}
 		data->stop_simulation = 1;
 		pthread_mutex_unlock(&data->monitor_lock);
-		time = get_time() - data->start_time;
+		time = get_curent_time() - data->start_time;
 		pthread_mutex_lock(&data->print_lock);
 		printf("%lld %d %s\n", time, philo[i].id, "died 💀");
 		pthread_mutex_unlock(&data->print_lock);
@@ -69,7 +69,7 @@ static int	philo_has_died(t_data *data, t_philo *philo)
 	while (i < data->num_philos)
 	{
 		pthread_mutex_lock(&philo[i].philo_lock);
-		if (get_time() - philo[i].last_meal_time > data->time_to_die)
+		if (get_curent_time() - philo[i].last_meal_time > data->time_to_die)
 		{
 			aux_dead(data, philo, i);
 			return (1);

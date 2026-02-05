@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:24:01 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/28 10:08:46 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:31:31 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	check_args(int argc, char **argv, t_data *data)
 {
-	if (error_arg(argc, argv))
+	if (check_error(argc, argv))
 		return (1);
 	data->num_philos = ft_atou(argv[1]);
 	data->time_to_die = ft_atou(argv[2]);

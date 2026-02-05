@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:28:24 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/02/05 09:10:15 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:29:36 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	philo_eat(t_philo *philo)
 	pthread_mutex_lock(second_fork);
 	print_action(philo, "has taken a fork 🍴");
 	pthread_mutex_lock(&philo->philo_lock);
-	philo->last_meal_time = get_time();
+	philo->last_meal_time = get_curent_time();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->philo_lock);
 	print_action(philo, "is eating 🍝");

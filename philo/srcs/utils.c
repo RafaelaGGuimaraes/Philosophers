@@ -6,13 +6,13 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:30:44 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/02/05 09:01:36 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:29:39 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philosophers.h"
 
-long long	get_time(void)
+long long	get_curent_time(void)
 {
 	struct timeval	tv;
 
@@ -25,8 +25,8 @@ void	ft_usleep(size_t mls)
 {
 	size_t	start;
 
-	start = get_time();
-	while ((get_time() - start) < mls)
+	start = get_curent_time();
+	while ((get_curent_time() - start) < mls)
 		usleep(500);
 }
 
@@ -41,7 +41,7 @@ void	print_action(t_philo *philo, char *str)
 	if (!stop)
 	{
 		pthread_mutex_lock(&philo->data->print_lock);
-		time = get_time() - philo->data->start_time;
+		time = get_curent_time() - philo->data->start_time;
 		printf("%lld %d %s\n", time, philo->id, str);
 		pthread_mutex_unlock(&philo->data->print_lock);
 	}

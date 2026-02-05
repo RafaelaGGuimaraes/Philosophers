@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:23:57 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/01/28 09:48:22 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/05 09:31:12 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	is_valid(int argc, char **argv)
 	return (0);
 }
 
-int	error_arg(int argc, char **argv)
+int	check_error(int argc, char **argv)
 {
 	if (argc < 5 || argc > 6)
 	{
