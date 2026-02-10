@@ -6,7 +6,7 @@
 /*   By: rgomes-g <rgomes-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 13:28:24 by rgomes-g          #+#    #+#             */
-/*   Updated: 2026/02/05 09:29:36 by rgomes-g         ###   ########.fr       */
+/*   Updated: 2026/02/10 15:02:40 by rgomes-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	philo_eat(t_philo *philo)
 
 	which_philo(philo, &first_fork, &second_fork);
 	pthread_mutex_lock(first_fork);
-	print_action(philo, "has taken a fork 🍴");
+	print_action(philo, "has taken a fork");
 	if (philo->data->num_philos == 1)
 	{
 		ft_usleep(philo->data->time_to_die);
@@ -42,12 +42,12 @@ void	philo_eat(t_philo *philo)
 		return ;
 	}
 	pthread_mutex_lock(second_fork);
-	print_action(philo, "has taken a fork 🍴");
+	print_action(philo, "has taken a fork");
 	pthread_mutex_lock(&philo->philo_lock);
 	philo->last_meal_time = get_curent_time();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->philo_lock);
-	print_action(philo, "is eating 🍝");
+	print_action(philo, "is eating");
 	ft_usleep(philo->data->time_to_eat);
 	pthread_mutex_unlock(second_fork);
 	pthread_mutex_unlock(first_fork);
@@ -71,9 +71,9 @@ void	*philo_routine(void *arg)
 		}
 		pthread_mutex_unlock(&philo->data->monitor_lock);
 		philo_eat(philo);
-		print_action(philo, "is sleeping 💤");
+		print_action(philo, "is sleeping");
 		ft_usleep(philo->data->time_to_sleep);
-		print_action(philo, "is thinking 💭");
+		print_action(philo, "is thinking");
 		if (philo->data->num_philos % 2 != 0)
 			usleep(1000);
 	}
